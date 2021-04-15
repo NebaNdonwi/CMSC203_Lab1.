@@ -1,0 +1,36 @@
+
+class CheckingAccount extends BankAccount {
+	final double FEE=.15;
+	public CheckingAccount (String name, double amount) {
+	super(name, amount);
+	this.setAccountNumber(this.getAccountNumber() + "-10");
+	// TODO Auto-generated constructor stub
+	}
+	@Override
+	public boolean withdraw(double amount) {
+	// TODO Auto-generated method stub
+	double newAmount = amount + FEE;
+	return super.withdraw(newAmount);
+	}
+}
+
+
+public class SavingsAccount extends BankAccount{ //savings account
+	double rate=.025; //variables declared
+	int savingsNumber=0;
+	String accountNumber;
+	public SavingsAccount(String name, double amt){ //constructor declared
+		super(name,amt);
+		this.accountNumber = super.getAccountNumber()+ "-"+savingsNumber;
+	}
+	public void postInterest(){ //interest method
+
+	}
+	public String getAccountNumber(){
+		return null;
+	}
+	public SavingsAccount(SavingsAccount acc,double balance){ //copy constructor method
+		super(acc,balance);
+		this.accountNumber = super.getAccountNumber()+ "-"+savingsNumber;
+	}
+}
